@@ -1,67 +1,130 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Доступ к материалам</title>
+    <title>Blog Insight | Exclusive Access</title>
     <style>
         body {
             margin: 0;
-            padding: 0;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f4f4f9;
+            background: #0f172a;
+            color: #f8fafc;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            height: 100vh;
-            text-align: center;
+            min-height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
         }
         .container {
-            background: #ffffff;
-            padding: 40px 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            max-width: 320px;
-            width: 90%;
+            max-width: 420px;
+            width: 100%;
+            margin-top: 60px;
+            text-align: center;
+        }
+        .avatar-wrapper {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            margin: 0 auto 20px;
+            padding: 4px;
+            box-sizing: border-box;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+        }
+        .avatar {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: #1e293b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: bold;
+            color: #fff;
+            overflow: hidden;
+        }
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         h1 {
-            font-size: 22px;
-            color: #333;
-            margin-bottom: 10px;
+            font-size: 26px;
+            margin: 0 0 12px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
         }
-        p {
+        p.subtitle {
             font-size: 16px;
-            color: #666;
-            margin-bottom: 30px;
+            color: #94a3b8;
+            margin: 0 0 35px;
+            line-height: 1.5;
         }
         .btn {
-            display: inline-block;
-            background-color: #2AABEE;
-            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: linear-gradient(90deg, #2AABEE, #2298d6);
+            color: white;
             text-decoration: none;
             font-size: 18px;
             font-weight: 600;
-            padding: 16px 30px;
-            border-radius: 12px;
-            width: 100%;
-            box-sizing: border-box;
-            transition: background 0.3s ease;
+            padding: 18px 20px;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(42, 171, 238, 0.3);
+            transition: all 0.2s ease;
+            margin-bottom: 25px;
         }
         .btn:active {
-            background-color: #2298d6;
+            transform: scale(0.97);
+            box-shadow: 0 4px 10px rgba(42, 171, 238, 0.2);
+        }
+        .btn svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            font-size: 14px;
+            color: #64748b;
+            margin-top: 20px;
+        }
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
     </style>
 </head>
 <body>
-
     <div class="container">
-        <h1>Ваша связка готова</h1>
-        <p>Материалы будут отправлены автоматически в Telegram-бот.</p>
+        <div class="avatar-wrapper">
+            <div class="avatar">
+                BI
+            </div>
+        </div>
         
-        <!-- ВМЕСТО ВАША_ССЫЛКА_НА_БОТА ВСТАВЬ СВОЙ ДИПЛИНК ИЛИ ССЫЛКУ -->
-        <a href="ВАША_ССЫЛКА_НА_БОТА" class="btn">Открыть в Telegram</a>
-    </div>
+        <h1>Blog Insight</h1>
+        <p class="subtitle">Premium market insights, analytics, and private resources. Tap the button below to get instant access via our bot.</p>
+        
+        <a href="https://t.me/+64WNzirXejkxNmZi" class="btn">
+            <svg viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.06-.2-.06-.05-.16-.03-.23-.01-.1.02-1.72 1.09-4.86 3.21-.46.32-.88.48-1.25.47-.41-.01-1.2-.23-1.79-.42-.73-.24-1.31-.36-1.26-.76.02-.21.32-.42.89-.64 3.49-1.52 5.82-2.53 6.99-3.02 3.33-1.38 4.02-1.62 4.47-1.63.1 0 .32.02.43.14.09.1.11.23.1.33z"/>
+            </svg>
+            Get Instant Access
+        </a>
 
+        <div class="trust-badges">
+            <div class="badge">🔒 100% Free</div>
+            <div class="badge">⚡️ Instant Delivery</div>
+        </div>
+    </div>
 </body>
 </html>
