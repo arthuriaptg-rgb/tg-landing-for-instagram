@@ -3,128 +3,225 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Insight | Exclusive Access</title>
+    <title>Private Access | Blog Insight</title>
     <style>
-        body {
+        /* Базовые настройки и шрифты */
+        body, html {
             margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background: #0f172a;
-            color: #f8fafc;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-        .container {
-            max-width: 420px;
-            width: 100%;
-            margin-top: 60px;
-            text-align: center;
-        }
-        .avatar-wrapper {
-            width: 110px;
-            height: 110px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-            margin: 0 auto 20px;
-            padding: 4px;
-            box-sizing: border-box;
-            box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
-        }
-        .avatar {
-            width: 100%;
+            padding: 0;
             height: 100%;
-            border-radius: 50%;
-            background: #1e293b;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #050505; /* Глубокий черный */
+            color: #ffffff;
+            overflow: hidden; /* Скрываем скролл для идеального фона */
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 32px;
-            font-weight: bold;
-            color: #fff;
-            overflow: hidden;
         }
-        .avatar img {
+
+        /* Анимированный неоновый фон */
+        .bg-blobs {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            overflow: hidden;
+            z-index: 0;
         }
-        h1 {
-            font-size: 26px;
-            margin: 0 0 12px;
-            font-weight: 700;
+        .blob {
+            position: absolute;
+            filter: blur(80px);
+            border-radius: 50%;
+            opacity: 0.5;
+            animation: float 10s infinite ease-in-out alternate;
+        }
+        .blob-1 {
+            width: 300px;
+            height: 300px;
+            background: #2563eb; /* Синий */
+            top: -10%;
+            left: -10%;
+        }
+        .blob-2 {
+            width: 400px;
+            height: 400px;
+            background: #7c3aed; /* Фиолетовый */
+            bottom: -20%;
+            right: -10%;
+            animation-delay: -5s;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(50px, 50px) scale(1.1); }
+        }
+
+        /* Glassmorphism Карточка */
+        .glass-panel {
+            position: relative;
+            z-index: 1;
+            width: 90%;
+            max-width: 400px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Статус Live */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(34, 197, 94, 0.1);
+            color: #4ade80;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
             letter-spacing: 0.5px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(34, 197, 94, 0.2);
+        }
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #4ade80;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #4ade80;
+            animation: pulse-dot 1.5s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(1.2); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        /* Текст */
+        h1 {
+            font-size: 28px;
+            margin: 0 0 15px;
+            font-weight: 700;
+            background: linear-gradient(to right, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         p.subtitle {
-            font-size: 16px;
+            font-size: 15px;
             color: #94a3b8;
             margin: 0 0 35px;
-            line-height: 1.5;
+            line-height: 1.6;
+        }
+
+        /* Пульсирующая Кнопка */
+        .btn-wrapper {
+            position: relative;
+            margin-bottom: 25px;
         }
         .btn {
+            position: relative;
+            z-index: 2;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            background: linear-gradient(90deg, #2AABEE, #2298d6);
+            gap: 12px;
+            background: linear-gradient(135deg, #2AABEE, #1c7cac);
             color: white;
             text-decoration: none;
             font-size: 18px;
             font-weight: 600;
             padding: 18px 20px;
             border-radius: 16px;
-            box-shadow: 0 8px 20px rgba(42, 171, 238, 0.3);
-            transition: all 0.2s ease;
-            margin-bottom: 25px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(42, 171, 238, 0.4);
         }
         .btn:active {
-            transform: scale(0.97);
-            box-shadow: 0 4px 10px rgba(42, 171, 238, 0.2);
+            transform: translateY(0) scale(0.98);
         }
         .btn svg {
             width: 24px;
             height: 24px;
             fill: currentColor;
         }
-        .trust-badges {
+        
+        /* Эффект свечения под кнопкой */
+        .btn-glow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #2AABEE;
+            filter: blur(20px);
+            border-radius: 16px;
+            z-index: 1;
+            opacity: 0.4;
+            animation: pulse-glow 2s infinite alternate;
+        }
+
+        @keyframes pulse-glow {
+            0% { opacity: 0.3; transform: scale(0.95); }
+            100% { opacity: 0.6; transform: scale(1.05); }
+        }
+
+        /* Бейджи доверия */
+        .trust-info {
             display: flex;
             justify-content: center;
-            gap: 25px;
-            font-size: 14px;
+            gap: 20px;
+            font-size: 13px;
             color: #64748b;
-            margin-top: 20px;
         }
-        .badge {
+        .trust-info div {
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 5px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="avatar-wrapper">
-            <div class="avatar">
-                BI
-            </div>
+
+    <!-- Фоновые пятна -->
+    <div class="bg-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <!-- Основной контент -->
+    <div class="glass-panel">
+        <div class="status-badge">
+            <div class="status-dot"></div>
+            SYSTEM ACTIVE
         </div>
         
-        <h1>Blog Insight</h1>
-        <p class="subtitle">Premium market insights, analytics, and private resources. Tap the button below to get instant access via our bot.</p>
+        <h1>Exclusive Setup</h1>
+        <p class="subtitle">Access the private algorithms, advanced analytics, and insider data. Tap below to launch the bot.</p>
         
-        <a href="https://t.me/+64WNzirXejkxNmZi" class="btn">
-            <svg viewBox="0 0 24 24">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.06-.2-.06-.05-.16-.03-.23-.01-.1.02-1.72 1.09-4.86 3.21-.46.32-.88.48-1.25.47-.41-.01-1.2-.23-1.79-.42-.73-.24-1.31-.36-1.26-.76.02-.21.32-.42.89-.64 3.49-1.52 5.82-2.53 6.99-3.02 3.33-1.38 4.02-1.62 4.47-1.63.1 0 .32.02.43.14.09.1.11.23.1.33z"/>
-            </svg>
-            Get Instant Access
-        </a>
+        <div class="btn-wrapper">
+            <div class="btn-glow"></div>
+            <a href="https://t.me/+64WNzirXejkxNmZi" class="btn">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.06-.2-.06-.05-.16-.03-.23-.01-.1.02-1.72 1.09-4.86 3.21-.46.32-.88.48-1.25.47-.41-.01-1.2-.23-1.79-.42-.73-.24-1.31-.36-1.26-.76.02-.21.32-.42.89-.64 3.49-1.52 5.82-2.53 6.99-3.02 3.33-1.38 4.02-1.62 4.47-1.63.1 0 .32.02.43.14.09.1.11.23.1.33z"/>
+                </svg>
+                Launch via Telegram
+            </a>
+        </div>
 
-        <div class="trust-badges">
-            <div class="badge">🔒 100% Free</div>
-            <div class="badge">⚡️ Instant Delivery</div>
+        <div class="trust-info">
+            <div>🛡️ End-to-End Encrypted</div>
+            <div>⚡️ Instant Access</div>
         </div>
     </div>
+
 </body>
 </html>
