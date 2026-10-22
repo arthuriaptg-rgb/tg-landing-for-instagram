@@ -151,24 +151,6 @@
             color: var(--text-muted);
             margin-bottom: 15px;
         }
-        .photo-placeholder {
-            width: 100%;
-            height: 350px;
-            background-color: #eaeaea;
-            border-radius: 12px;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999;
-            font-size: 14px;
-            overflow: hidden;
-        }
-        .photo-placeholder img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
 
         /* Compare Table */
         .compare-section {
@@ -350,15 +332,15 @@
             </div>
         </div>
 
-        <!-- About Section -->
+        <!-- About Section (с двумя фотографиями) -->
         <div class="about-section">
             <span class="about-tag">01 / Meet Novak</span>
             <h2>I started trading in 2020, navigating the noise.</h2>
             
-            <div class="photo-placeholder">
-                <!-- Загрузи фото на github и раскомментируй строку ниже -->
-                <!-- <img src="novak-photo.jpg" alt="Novak"> -->
-                [Your Photo Here]
+            <!-- Блок с двумя фото -->
+            <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+                <img src="photo-2020.png" alt="Novak 2020" style="width: 50%; border-radius: 12px; object-fit: cover; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+                <img src="photo-2025.png" alt="Novak 2025" style="width: 50%; border-radius: 12px; object-fit: cover; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
             </div>
 
             <p class="about-text">Like most people, my first year in the financial markets was a steep learning curve. I changed strategies every few weeks, lost money, and never looked back at my own mistakes.</p>
