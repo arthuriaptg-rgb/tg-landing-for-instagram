@@ -225,6 +225,181 @@
         <div class="about-section">
             <span class="about-tag">01 / Meet Novak</span>
             <h2>I started trading in 2020, navigating the noise.</h2>
+
+            <!-- Дополнительные стили для новых блоков (вставятся автоматически) -->
+        <style>
+            .compare-section {
+                margin: 50px 0;
+            }
+            .compare-section h2, .steps-section h2 {
+                font-size: 24px;
+                margin: 0 0 25px;
+                line-height: 1.3;
+                text-align: center;
+            }
+            .compare-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                background: #fff;
+                border: 1px solid #eaeaea;
+                border-radius: 12px;
+                overflow: hidden;
+            }
+            .compare-header {
+                padding: 15px 10px;
+                font-size: 11px;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                font-weight: 700;
+                text-align: center;
+            }
+            .col-alone {
+                background: #f9f9f9;
+                color: var(--text-muted);
+            }
+            .col-novak {
+                background: rgba(242, 102, 57, 0.05); /* Легкий акцентный фон */
+                color: var(--text-main);
+            }
+            .compare-row {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                border-top: 1px solid #eaeaea;
+            }
+            .compare-cell {
+                padding: 20px 15px;
+                font-size: 14px;
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+            }
+            .icon-cross {
+                color: #ef4444;
+                font-size: 16px;
+            }
+            .icon-check {
+                color: var(--accent);
+                font-size: 16px;
+            }
+            .cell-title {
+                font-weight: 700;
+                font-size: 12px;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                color: var(--text-main);
+                grid-column: span 2;
+                padding: 15px 15px 0;
+                border-top: 1px solid #eaeaea;
+            }
+
+            /* Шаги */
+            .steps-section {
+                margin: 50px 0;
+                background-color: var(--bg-secondary);
+                padding: 40px 20px;
+                border-radius: 16px;
+            }
+            .step-item {
+                display: flex;
+                gap: 15px;
+                margin-bottom: 25px;
+            }
+            .step-number {
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                background: rgba(242, 102, 57, 0.1);
+                color: var(--accent);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 700;
+                flex-shrink: 0;
+            }
+            .step-text h4 {
+                margin: 0 0 5px;
+                font-size: 16px;
+            }
+            .step-text p {
+                margin: 0;
+                font-size: 14px;
+                color: var(--text-muted);
+            }
+        </style>
+
+        <!-- Блок: Сравнение -->
+        <div class="compare-section">
+            <h2>The same market, two very different ways to trade it.</h2>
+            <div class="compare-grid">
+                <div class="compare-header col-alone">Trading Alone</div>
+                <div class="compare-header col-novak">Novak Community</div>
+
+                <div class="cell-title">Plan</div>
+                <div class="compare-row">
+                    <div class="compare-cell col-alone">
+                        <span class="icon-cross">✖</span>
+                        Made up on the chart
+                    </div>
+                    <div class="compare-cell col-novak">
+                        <span class="icon-check">✔</span>
+                        A written playbook for each market condition
+                    </div>
+                </div>
+
+                <div class="cell-title">Risk</div>
+                <div class="compare-row">
+                    <div class="compare-cell col-alone">
+                        <span class="icon-cross">✖</span>
+                        Decided in the moment
+                    </div>
+                    <div class="compare-cell col-novak">
+                        <span class="icon-check">✔</span>
+                        Calculated before every trade
+                    </div>
+                </div>
+
+                <div class="cell-title">Cost</div>
+                <div class="compare-row">
+                    <div class="compare-cell col-alone">
+                        <span class="icon-cross">✖</span>
+                        Thousands in lost $
+                    </div>
+                    <div class="compare-cell col-novak">
+                        <span class="icon-check">✔</span>
+                        $0
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Блок: Как это работает -->
+        <div class="steps-section">
+            <h2>It takes about 30 seconds.</h2>
+            
+            <div class="step-item">
+                <div class="step-number">1</div>
+                <div class="step-text">
+                    <h4>Tap the button</h4>
+                    <p>Telegram will open automatically on your phone or computer.</p>
+                </div>
+            </div>
+            
+            <div class="step-item">
+                <div class="step-number">2</div>
+                <div class="step-text">
+                    <h4>Start the bot</h4>
+                    <p>Hit "Start" to receive your instant access link to the private community.</p>
+                </div>
+            </div>
+            
+            <div class="step-item">
+                <div class="step-number">3</div>
+                <div class="step-text">
+                    <h4>Read the pinned post</h4>
+                    <p>Download the trading plan and prepare for the next market briefing.</p>
+                </div>
+            </div>
+        </div>
             
             <!-- СЮДА ВСТАВИШЬ СВОЕ ФОТО -->
             <div class="photo-placeholder">
