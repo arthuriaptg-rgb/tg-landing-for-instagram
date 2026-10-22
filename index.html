@@ -3,225 +3,247 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Private Access | Blog Insight</title>
+    <title>Novak Trading | Free Access</title>
     <style>
-        /* Базовые настройки и шрифты */
-        body, html {
+        :root {
+            --text-main: #111111;
+            --text-muted: #666666;
+            --bg-main: #ffffff;
+            --bg-secondary: #f9f9f9;
+            --accent: #f26639; /* Легкий оранжевый акцент как на видео */
+        }
+        
+        body {
             margin: 0;
             padding: 0;
-            height: 100%;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #050505; /* Глубокий черный */
-            color: #ffffff;
-            overflow: hidden; /* Скрываем скролл для идеального фона */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* Анимированный неоновый фон */
-        .bg-blobs {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: 0;
-        }
-        .blob {
-            position: absolute;
-            filter: blur(80px);
-            border-radius: 50%;
-            opacity: 0.5;
-            animation: float 10s infinite ease-in-out alternate;
-        }
-        .blob-1 {
-            width: 300px;
-            height: 300px;
-            background: #2563eb; /* Синий */
-            top: -10%;
-            left: -10%;
-        }
-        .blob-2 {
-            width: 400px;
-            height: 400px;
-            background: #7c3aed; /* Фиолетовый */
-            bottom: -20%;
-            right: -10%;
-            animation-delay: -5s;
-        }
-
-        @keyframes float {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(50px, 50px) scale(1.1); }
-        }
-
-        /* Glassmorphism Карточка */
-        .glass-panel {
-            position: relative;
-            z-index: 1;
-            width: 90%;
-            max-width: 400px;
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 24px;
-            padding: 40px 30px;
-            text-align: center;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-        }
-
-        /* Статус Live */
-        .status-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(34, 197, 94, 0.1);
-            color: #4ade80;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            margin-bottom: 25px;
-            border: 1px solid rgba(34, 197, 94, 0.2);
-        }
-        .status-dot {
-            width: 8px;
-            height: 8px;
-            background-color: #4ade80;
-            border-radius: 50%;
-            box-shadow: 0 0 10px #4ade80;
-            animation: pulse-dot 1.5s infinite;
-        }
-
-        @keyframes pulse-dot {
-            0% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.4; transform: scale(1.2); }
-            100% { opacity: 1; transform: scale(1); }
-        }
-
-        /* Текст */
-        h1 {
-            font-size: 28px;
-            margin: 0 0 15px;
-            font-weight: 700;
-            background: linear-gradient(to right, #fff, #94a3b8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        p.subtitle {
-            font-size: 15px;
-            color: #94a3b8;
-            margin: 0 0 35px;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
             line-height: 1.6;
         }
 
-        /* Пульсирующая Кнопка */
-        .btn-wrapper {
-            position: relative;
-            margin-bottom: 25px;
+        .container {
+            max-width: 500px; /* Узкая колонка, идеально для мобильного трафика с IG */
+            margin: 0 auto;
+            padding: 40px 20px;
         }
+
+        /* Главный экран (Hero) */
+        .hero {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .hero-subtitle {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        .hero h1 {
+            font-size: 32px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin: 0 0 20px;
+            letter-spacing: -0.5px;
+        }
+        .hero p {
+            font-size: 16px;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        /* Кнопка */
         .btn {
-            position: relative;
-            z-index: 2;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
-            background: linear-gradient(135deg, #2AABEE, #1c7cac);
-            color: white;
+            gap: 10px;
+            background-color: var(--text-main);
+            color: #ffffff;
             text-decoration: none;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 600;
             padding: 18px 20px;
-            border-radius: 16px;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(42, 171, 238, 0.4);
+            border-radius: 12px;
+            width: 100%;
+            box-sizing: border-box;
+            transition: transform 0.2s ease;
         }
         .btn:active {
-            transform: translateY(0) scale(0.98);
+            transform: scale(0.98);
         }
         .btn svg {
-            width: 24px;
-            height: 24px;
+            width: 20px;
+            height: 20px;
             fill: currentColor;
         }
-        
-        /* Эффект свечения под кнопкой */
-        .btn-glow {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #2AABEE;
-            filter: blur(20px);
-            border-radius: 16px;
-            z-index: 1;
-            opacity: 0.4;
-            animation: pulse-glow 2s infinite alternate;
-        }
-
-        @keyframes pulse-glow {
-            0% { opacity: 0.3; transform: scale(0.95); }
-            100% { opacity: 0.6; transform: scale(1.05); }
-        }
-
-        /* Бейджи доверия */
-        .trust-info {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
+        .btn-disclaimer {
             font-size: 13px;
-            color: #64748b;
+            color: var(--text-muted);
+            text-align: center;
+            margin-top: 12px;
         }
-        .trust-info div {
+
+        /* Список преимуществ с галочками */
+        .features {
+            margin: 30px 0;
+        }
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+        .feature-icon {
+            color: var(--accent);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        /* Блок статистики */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid #eaeaea;
+            border-bottom: 1px solid #eaeaea;
+            margin: 40px 0;
+        }
+        .stat-item h3 {
+            font-size: 42px;
+            font-weight: 800;
+            margin: 0;
+            line-height: 1;
+        }
+        .stat-item p {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin: 8px 0 0;
+        }
+
+        /* Блок Об Авторе */
+        .about-section {
+            background-color: var(--bg-secondary);
+            padding: 30px 20px;
+            border-radius: 16px;
+            margin-bottom: 40px;
+        }
+        .about-tag {
+            font-size: 12px;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .about-section h2 {
+            font-size: 24px;
+            margin: 0 0 20px;
+            line-height: 1.3;
+        }
+        .about-text {
+            font-size: 15px;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
+        
+        /* Заглушка для фото */
+        .photo-placeholder {
+            width: 100%;
+            height: 350px;
+            background-color: #eaeaea;
+            border-radius: 12px;
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
-            gap: 5px;
+            justify-content: center;
+            color: #999;
+            font-size: 14px;
+            overflow: hidden;
         }
+        .photo-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
     </style>
 </head>
 <body>
 
-    <!-- Фоновые пятна -->
-    <div class="bg-blobs">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
-    </div>
-
-    <!-- Основной контент -->
-    <div class="glass-panel">
-        <div class="status-badge">
-            <div class="status-dot"></div>
-            SYSTEM ACTIVE
-        </div>
+    <div class="container">
         
-        <h1>Exclusive Setup</h1>
-        <p class="subtitle">Access the private algorithms, advanced analytics, and insider data. Tap below to launch the bot.</p>
-        
-        <div class="btn-wrapper">
-            <div class="btn-glow"></div>
-            <a href="https://t.me/+64WNzirXejkxNmZi" class="btn">
+        <!-- Главный экран -->
+        <div class="hero">
+            <div class="hero-subtitle">For beginners and active traders</div>
+            <h1>Build your trading plan before your next trade</h1>
+            <p>Join the private community. Get daily market briefings, live setups, and the exact systems I use every day.</p>
+            
+            <a href="https://t.me/Novak_access_bot?start=7u7bt" class="btn">
                 <svg viewBox="0 0 24 24">
                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.06-.2-.06-.05-.16-.03-.23-.01-.1.02-1.72 1.09-4.86 3.21-.46.32-.88.48-1.25.47-.41-.01-1.2-.23-1.79-.42-.73-.24-1.31-.36-1.26-.76.02-.21.32-.42.89-.64 3.49-1.52 5.82-2.53 6.99-3.02 3.33-1.38 4.02-1.62 4.47-1.63.1 0 .32.02.43.14.09.1.11.23.1.33z"/>
                 </svg>
-                Launch via Telegram
+                Join the Free Lab on Telegram
             </a>
+            <div class="btn-disclaimer">It's free and opens in Telegram. You can leave anytime.</div>
         </div>
 
-        <div class="trust-info">
-            <div>🛡️ End-to-End Encrypted</div>
-            <div>⚡️ Instant Access</div>
+        <!-- Преимущества -->
+        <div class="features">
+            <div class="feature-item">
+                <div class="feature-icon">✔️</div>
+                <div><strong>Daily market briefing</strong> every trading day, live breakdowns with Q&A</div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">✔️</div>
+                <div><strong>Risk management rules</strong> pinned the moment you join</div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">✔️</div>
+                <div><strong>Free forever</strong>, no card required, you can leave anytime</div>
+            </div>
         </div>
+
+        <!-- Статистика -->
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>2020</h3>
+                <p>Trading since</p>
+            </div>
+            <div class="stat-item">
+                <h3>3,500+</h3>
+                <p>Members in the community</p>
+            </div>
+        </div>
+
+        <!-- Блок Об авторе -->
+        <div class="about-section">
+            <span class="about-tag">01 / Meet Novak</span>
+            <h2>I started trading in 2020, navigating the noise.</h2>
+            
+            <!-- СЮДА ВСТАВИШЬ СВОЕ ФОТО -->
+            <div class="photo-placeholder">
+                <!-- Раскомментируй строку ниже, когда загрузишь фото на GitHub -->
+                <!-- <img src="novak-photo.jpg" alt="Novak"> -->
+                [Your Photo Here]
+            </div>
+
+            <p class="about-text">Like most people, my first year in the financial markets was a steep learning curve. I changed strategies every few weeks, lost money, and never looked back at my own mistakes.</p>
+            <p class="about-text">That changed once I built a strict system. I wrote my rules down, journaled every trade, and stopped gambling.</p>
+            <p class="about-text">I can't promise you guaranteed results. Trading takes time, discipline, and carries real risk. What I <i>can</i> do is show you the exact structure I use, live, every single week.</p>
+            <p class="about-text" style="color: var(--text-main); font-weight: 600; margin-top: 20px;">Novak, Founder</p>
+        </div>
+        
+        <!-- Нижняя кнопка -->
+        <a href="https://t.me/Novak_access_bot?start=7u7bt" class="btn">
+            Join the Free Lab on Telegram
+        </a>
+
     </div>
-
 </body>
 </html>
