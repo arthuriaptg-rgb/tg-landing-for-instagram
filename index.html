@@ -10,7 +10,7 @@
             --text-muted: #666666;
             --bg-main: #ffffff;
             --bg-secondary: #f9f9f9;
-            --accent: #f26639; /* Легкий оранжевый акцент как на видео */
+            --accent: #f26639;
         }
         
         body {
@@ -23,12 +23,12 @@
         }
 
         .container {
-            max-width: 500px; /* Узкая колонка, идеально для мобильного трафика с IG */
+            max-width: 500px; 
             margin: 0 auto;
             padding: 40px 20px;
         }
 
-        /* Главный экран (Hero) */
+        /* Hero Section */
         .hero {
             text-align: center;
             margin-bottom: 40px;
@@ -54,7 +54,7 @@
             margin-bottom: 30px;
         }
 
-        /* Кнопка */
+        /* Buttons */
         .btn {
             display: flex;
             align-items: center;
@@ -86,7 +86,7 @@
             margin-top: 12px;
         }
 
-        /* Список преимуществ с галочками */
+        /* Features */
         .features {
             margin: 30px 0;
         }
@@ -103,7 +103,7 @@
             margin-top: 2px;
         }
 
-        /* Блок статистики */
+        /* Stats */
         .stats-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -126,7 +126,7 @@
             margin: 8px 0 0;
         }
 
-        /* Блок Об Авторе */
+        /* About Section */
         .about-section {
             background-color: var(--bg-secondary);
             padding: 30px 20px;
@@ -151,8 +151,6 @@
             color: var(--text-muted);
             margin-bottom: 15px;
         }
-        
-        /* Заглушка для фото */
         .photo-placeholder {
             width: 100%;
             height: 350px;
@@ -172,13 +170,144 @@
             object-fit: cover;
         }
 
+        /* Compare Table */
+        .compare-section {
+            margin: 50px 0;
+        }
+        .compare-section h2, .steps-section h2, .faq-section h2 {
+            font-size: 24px;
+            margin: 0 0 25px;
+            line-height: 1.3;
+            text-align: center;
+        }
+        .compare-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: #fff;
+            border: 1px solid #eaeaea;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .compare-header {
+            padding: 15px 10px;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            text-align: center;
+        }
+        .col-alone {
+            background: #f9f9f9;
+            color: var(--text-muted);
+        }
+        .col-novak {
+            background: rgba(242, 102, 57, 0.05);
+            color: var(--text-main);
+        }
+        .compare-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border-top: 1px solid #eaeaea;
+        }
+        .compare-cell {
+            padding: 20px 15px;
+            font-size: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .icon-cross { color: #ef4444; font-size: 16px; }
+        .icon-check { color: var(--accent); font-size: 16px; }
+        .cell-title {
+            font-weight: 700;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-main);
+            grid-column: span 2;
+            padding: 15px 15px 0;
+            border-top: 1px solid #eaeaea;
+        }
+
+        /* Steps */
+        .steps-section {
+            margin: 50px 0;
+            background-color: var(--bg-secondary);
+            padding: 40px 20px;
+            border-radius: 16px;
+        }
+        .step-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        .step-item:last-child {
+            margin-bottom: 0;
+        }
+        .step-number {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: rgba(242, 102, 57, 0.1);
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        .step-text h4 { margin: 0 0 5px; font-size: 16px; }
+        .step-text p { margin: 0; font-size: 14px; color: var(--text-muted); }
+
+        /* FAQ Section */
+        .faq-section {
+            margin: 50px 0;
+        }
+        details {
+            border-bottom: 1px solid #eaeaea;
+            padding: 15px 0;
+        }
+        summary {
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        summary::-webkit-details-marker {
+            display: none;
+        }
+        summary::after {
+            content: "+";
+            font-size: 20px;
+            color: var(--accent);
+            transition: transform 0.2s ease;
+        }
+        details[open] summary::after {
+            content: "−";
+        }
+        details p {
+            margin: 15px 0 0;
+            font-size: 15px;
+            color: var(--text-muted);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 12px;
+            color: #999;
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
         
-        <!-- Главный экран -->
+        <!-- Hero Section -->
         <div class="hero">
             <div class="hero-subtitle">For beginners and active traders</div>
             <h1>Build your trading plan before your next trade</h1>
@@ -193,7 +322,7 @@
             <div class="btn-disclaimer">It's free and opens in Telegram. You can leave anytime.</div>
         </div>
 
-        <!-- Преимущества -->
+        <!-- Features -->
         <div class="features">
             <div class="feature-item">
                 <div class="feature-icon">✔️</div>
@@ -209,7 +338,7 @@
             </div>
         </div>
 
-        <!-- Статистика -->
+        <!-- Stats -->
         <div class="stats-grid">
             <div class="stat-item">
                 <h3>2020</h3>
@@ -221,113 +350,24 @@
             </div>
         </div>
 
-        <!-- Блок Об авторе -->
+        <!-- About Section -->
         <div class="about-section">
             <span class="about-tag">01 / Meet Novak</span>
             <h2>I started trading in 2020, navigating the noise.</h2>
+            
+            <div class="photo-placeholder">
+                <!-- Загрузи фото на github и раскомментируй строку ниже -->
+                <!-- <img src="novak-photo.jpg" alt="Novak"> -->
+                [Your Photo Here]
+            </div>
 
-            <!-- Дополнительные стили для новых блоков (вставятся автоматически) -->
-        <style>
-            .compare-section {
-                margin: 50px 0;
-            }
-            .compare-section h2, .steps-section h2 {
-                font-size: 24px;
-                margin: 0 0 25px;
-                line-height: 1.3;
-                text-align: center;
-            }
-            .compare-grid {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                background: #fff;
-                border: 1px solid #eaeaea;
-                border-radius: 12px;
-                overflow: hidden;
-            }
-            .compare-header {
-                padding: 15px 10px;
-                font-size: 11px;
-                text-transform: uppercase;
-                letter-spacing: 1px;
-                font-weight: 700;
-                text-align: center;
-            }
-            .col-alone {
-                background: #f9f9f9;
-                color: var(--text-muted);
-            }
-            .col-novak {
-                background: rgba(242, 102, 57, 0.05); /* Легкий акцентный фон */
-                color: var(--text-main);
-            }
-            .compare-row {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                border-top: 1px solid #eaeaea;
-            }
-            .compare-cell {
-                padding: 20px 15px;
-                font-size: 14px;
-                display: flex;
-                flex-direction: column;
-                gap: 8px;
-            }
-            .icon-cross {
-                color: #ef4444;
-                font-size: 16px;
-            }
-            .icon-check {
-                color: var(--accent);
-                font-size: 16px;
-            }
-            .cell-title {
-                font-weight: 700;
-                font-size: 12px;
-                text-transform: uppercase;
-                letter-spacing: 0.5px;
-                color: var(--text-main);
-                grid-column: span 2;
-                padding: 15px 15px 0;
-                border-top: 1px solid #eaeaea;
-            }
+            <p class="about-text">Like most people, my first year in the financial markets was a steep learning curve. I changed strategies every few weeks, lost money, and never looked back at my own mistakes.</p>
+            <p class="about-text">That changed once I built a strict system. I wrote my rules down, journaled every trade, and stopped gambling.</p>
+            <p class="about-text">I can't promise you guaranteed results. Trading takes time, discipline, and carries real risk. What I <i>can</i> do is show you the exact structure I use, live, every single week.</p>
+            <p class="about-text" style="color: var(--text-main); font-weight: 600; margin-top: 20px;">Novak, Founder</p>
+        </div>
 
-            /* Шаги */
-            .steps-section {
-                margin: 50px 0;
-                background-color: var(--bg-secondary);
-                padding: 40px 20px;
-                border-radius: 16px;
-            }
-            .step-item {
-                display: flex;
-                gap: 15px;
-                margin-bottom: 25px;
-            }
-            .step-number {
-                width: 30px;
-                height: 30px;
-                border-radius: 50%;
-                background: rgba(242, 102, 57, 0.1);
-                color: var(--accent);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-weight: 700;
-                flex-shrink: 0;
-            }
-            .step-text h4 {
-                margin: 0 0 5px;
-                font-size: 16px;
-            }
-            .step-text p {
-                margin: 0;
-                font-size: 14px;
-                color: var(--text-muted);
-            }
-        </style>
-
-        <!-- Блок: Сравнение -->
+        <!-- Compare Section -->
         <div class="compare-section">
             <h2>The same market, two very different ways to trade it.</h2>
             <div class="compare-grid">
@@ -372,7 +412,7 @@
             </div>
         </div>
 
-        <!-- Блок: Как это работает -->
+        <!-- Steps Section -->
         <div class="steps-section">
             <h2>It takes about 30 seconds.</h2>
             
@@ -400,24 +440,40 @@
                 </div>
             </div>
         </div>
-            
-            <!-- СЮДА ВСТАВИШЬ СВОЕ ФОТО -->
-            <div class="photo-placeholder">
-                <!-- Раскомментируй строку ниже, когда загрузишь фото на GitHub -->
-                <!-- <img src="novak-photo.jpg" alt="Novak"> -->
-                [Your Photo Here]
-            </div>
 
-            <p class="about-text">Like most people, my first year in the financial markets was a steep learning curve. I changed strategies every few weeks, lost money, and never looked back at my own mistakes.</p>
-            <p class="about-text">That changed once I built a strict system. I wrote my rules down, journaled every trade, and stopped gambling.</p>
-            <p class="about-text">I can't promise you guaranteed results. Trading takes time, discipline, and carries real risk. What I <i>can</i> do is show you the exact structure I use, live, every single week.</p>
-            <p class="about-text" style="color: var(--text-main); font-weight: 600; margin-top: 20px;">Novak, Founder</p>
+        <!-- FAQ Section -->
+        <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            
+            <details>
+                <summary>Is it really free?</summary>
+                <p>Yes. The Lab, the checklists, and the briefings cost nothing, and you don't need to link a card.</p>
+            </details>
+            <details>
+                <summary>Do I need money to start?</summary>
+                <p>No. You can start by learning the process and practicing on a demo account. Trading with real money carries significant risk.</p>
+            </details>
+            <details>
+                <summary>Do you send signals?</summary>
+                <p>We share our analysis and explain each decision in the breakdowns. What you do on your own account is up to you.</p>
+            </details>
+            <details>
+                <summary>Can I leave anytime?</summary>
+                <p>Yes, you are in full control and can leave the community at any time with one tap.</p>
+            </details>
         </div>
         
-        <!-- Нижняя кнопка -->
+        <!-- Final Button -->
         <a href="https://t.me/Novak_access_bot?start=7u7bt" class="btn">
             Join the Free Lab on Telegram
         </a>
+        <div class="btn-disclaimer" style="margin-bottom: 30px;">It's free and opens in Telegram. You can leave anytime.</div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>Education only. Trading involves risk of loss, and we don't guarantee results.</p>
+            <p>© 2026 Novak Trading. All rights reserved.</p>
+        </div>
 
     </div>
 </body>
